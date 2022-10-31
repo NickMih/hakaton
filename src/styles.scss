@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import "assets/styles/palettes";
+
+@include mat.core();
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap');
+
+$my-primary: mat.define-palette($primary-palette, 800);
+$my-accent: mat.define-palette($accent-palette, 600, 700, 800);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+  )
+));
+
+@include mat.all-component-themes($my-theme);
+@include mat.strong-focus-indicators-theme(purple);
+
+body {
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  width: 100vw;
+  margin: 0;
+}
