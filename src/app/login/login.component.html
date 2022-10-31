@@ -1,0 +1,21 @@
+<div fxFill class="login-container">
+  <div class="login-bg"></div>
+  <div fxFill fxLayout="column" fxLayoutAlign="start center">
+    <img src="assets/images/emblem.png" fxFlex="45">
+    <mat-card fxLayout="column" class="login-card" fxLayoutGap="12px">
+      <mat-card-title style="margin: 0 auto"> Вход </mat-card-title>
+      <mat-form-field>
+        <mat-label> Логин </mat-label>
+        <input matInput type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Пароль </mat-label>
+        <input matInput type="password">
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="isRegistration"> Хочу создать аккаунт</mat-checkbox>
+      <div fxLayoutAlign="center center" fxLayoutGap="8px">
+        <button mat-raised-button color="primary"> Войти </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
