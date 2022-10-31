@@ -26,7 +26,10 @@
     margin: 0 auto;
     position: relative;
     top: -40px;
-    text-shadow: 0 px;
+    text-shadow: 0 0 20px white;
+
+    h1 {
+      padding: 12px 24px;
       background-color: red;
       box-shadow: 0 0 20px red;
     }
