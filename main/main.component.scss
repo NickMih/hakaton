@@ -1,0 +1,36 @@
+.main-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  video {
+    width: 65vw;
+  }
+}
+
+.card-container {
+  margin-top: 10vh;
+  position: absolute;
+  color: #4beeff;
+  .header {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    width: 200px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    top: -40px;
+    text-shadow: 0 px;
+      background-color: red;
+      box-shadow: 0 0 20px red;
+    }
+  }
+  .information {
+  }
+}
