@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
+  @Inject(AuthService) auth: AuthService;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  // должнен быть UserApi, но у нас юзера вообще нет
+  get user(): any {
+    return this.auth.user;
   }
-
 }

@@ -39,3 +39,19 @@ mat-icon {
 .link {
   color: $link-color;
 }
+
+:host {
+  mat-table, mat-paginator {
+    background: #ffffff00;
+    color: white;
+    * {
+      color: white !important;
+    }
+    mat-header-row {
+      background-color: $black-light;
+    }
+    .mat-select-value-text {
+      color: white !important;
+    }
+  }
+}

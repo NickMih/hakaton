@@ -3,3 +3,28 @@
   width: 100vw;
   overflow: hidden;
 }
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #3be9ff !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #3be9ff !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #3be9ff !important;
+}
+::ng-deep {
+
+  .mat-focused .mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #3be9ff !important;
+  }
+  .mat-focused .mat-form-field-label {
+    /*change color of label when focused*/
+    color: #3be9ff !important;
+  }
+}

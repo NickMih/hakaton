@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ISimpleColumn } from './simple-table.component';
-import { dateToString } from 'ng-project-helper';
+import {dateToString} from "../../utils";
 
 @Pipe({
   name: 'simpleValue'

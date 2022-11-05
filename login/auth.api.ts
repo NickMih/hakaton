@@ -4,3 +4,6 @@ export interface IUser {
 
   email?: string;
 }
+export interface IToken {
+  auth_token: string;
+}

@@ -8,7 +8,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {API} from "../services/ApiSettings";
 
 
 
@@ -18,14 +19,15 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([{path: '', component: LoginComponent}]),
+    RouterModule.forChild([{ path: '', component: LoginComponent }]),
     MatCardModule,
     FlexModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    FormsModule
-  ]
+    FormsModule,
+    ReactiveFormsModule
+  ],
 })
 export class LoginModule { }

@@ -15,13 +15,18 @@ import {MainComponent} from "./main/main.component";
             path: '',
             loadChildren: () => import('./main/main.module')
               .then(m => m.MainModule)
+          },
+          {
+            path: 'statistic',
+            loadChildren: () => import('./statistics/statistics.module')
+              .then(m => m.StatisticsModule)
+          },
+          {
+            path: 'login',
+            loadChildren: () => import('./login/login.module')
+              .then(m => m.LoginModule)
           }
         ]
-      },
-      {
-        path: 'login',
-        loadChildren: () => import('./login/login.module')
-          .then(m => m.LoginModule)
       },
     ])
   ]

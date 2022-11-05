@@ -3,10 +3,10 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Component, EventEmitter } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
-import { DefaultParams } from 'ng-project-helper';
 import { MatSort } from '@angular/material/sort';
 
 import { TableSource } from './table-source';
+import {DefaultParams} from "../../default-models";
 
 @UntilDestroy()
 @Component({
@@ -30,9 +30,7 @@ export class BaseTableComponent {
   expandedRowsArray: number[] = [];
 
   get ordering(): string {
-    return this.params.filters && this.params.filters.ordering !== undefined
-      ? this.params.filters.ordering
-      : this.params.ordering;
+    return this.params.ordering!;
   }
 
   get startIndex() {
@@ -56,8 +54,8 @@ export class BaseTableComponent {
   }
 
   paginatorClicked() {
-    this.params.paginationOption.limit = this.paginator.pageSize;
-    this.params.paginationOption.offset =
+    this.params.paginationOption!.limit = this.paginator.pageSize;
+    this.params.paginationOption!.offset =
       this.paginator.pageIndex * this.paginator.pageSize;
 
     this.paramsChange.emit(this.params);
@@ -74,7 +72,7 @@ export class BaseTableComponent {
   masterToggle() {
     this.isAllSelected()
       ? this.selection.clear()
-      : this.dataSource.data.forEach((row) => this.selection.select(row));
+      : this.dataSource.data.forEach((row: any) => this.selection.select(row));
   }
 
   expandRow(row: any) {
@@ -125,14 +123,14 @@ export class BaseTableComponent {
     this.isSortStarted = true;
 
     this.sort.sortChange.pipe(untilDestroyed(this)).subscribe(() => {
-      if (this.params.filters && this.params.filters.ordering) {
-        this.params.filters.ordering = this.getOrderingParams();
+      if (this.params && this.params.ordering) {
+        this.params.ordering = this.getOrderingParams();
       } else {
         this.params.ordering = this.getOrderingParams();
       }
       this.paginator.pageIndex = 0;
-      this.params.paginationOption.limit = this.paginator.pageSize;
-      this.params.paginationOption.offset =
+      this.params.paginationOption!.limit = this.paginator.pageSize;
+      this.params.paginationOption!.offset =
         this.paginator.pageIndex * this.paginator.pageSize;
 
       this.paramsChange.emit(this.params);

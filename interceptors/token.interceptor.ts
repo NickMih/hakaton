@@ -19,12 +19,12 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   protected setTokenHeader(request: HttpRequest<any>): HttpRequest<any> {
-    const authorizationToken: string = localStorage.getItem('authorization');
+    const authorizationToken: string = localStorage.getItem('authorization')!;
 
     if (authorizationToken) {
       return request.clone({
         setHeaders: {
-          Authorization: localStorage.getItem('authorization')
+          Authorization: authorizationToken
         }
       });
     }

@@ -1,21 +1,6 @@
 @import "src/assets/styles/constants";
-.login-container {
-
-  .login-bg {
-    z-index: -1;
-    width: 100vw;
-    background-color: #00000015;
-    height: 100vh;
-    position: fixed;
-  }
-  img {
-    z-index: -1;
-    filter: opacity(0.8) brightness(95%) contrast(95%);
-  }
-
-  .login-card {
-    background-color: $black-green-opacity;
-    border-radius: 12px;
-    width: 30%;
-  }
+.login-card {
+  padding: 24px 48px;
+  box-shadow: 0 0 20px $blue-light;
+  margin-top: 54px;
 }

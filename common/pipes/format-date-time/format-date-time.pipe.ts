@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { dateToString } from 'ng-project-helper';
+import {dateToString} from "../../utils";
 
 
 @Pipe({

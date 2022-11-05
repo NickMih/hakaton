@@ -11,7 +11,7 @@ export class TableSource<T> {
   }
 
   connect(): Observable<any> {
-    const rows = [];
+    let rows: any = [];
     this.data.forEach(element => rows.push(element, {detailRow: true, element}));
 
     return of(rows);

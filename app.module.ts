@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -12,6 +12,9 @@ import {MatInputModule} from "@angular/material/input";
 import {FlexModule} from "@angular/flex-layout";
 import {AppRouterModule} from "./app-routiing.module";
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import {AppService} from "./app.service";
+import {appServiceFactory} from "./app.data";
 
 @NgModule({
   declarations: [
@@ -19,6 +22,10 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     BrowserModule,
+
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -30,7 +37,10 @@ import {RouterModule} from "@angular/router";
     AppRouterModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    AppService,
+    {provide: APP_INITIALIZER, useFactory: appServiceFactory, deps: [AppService], multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

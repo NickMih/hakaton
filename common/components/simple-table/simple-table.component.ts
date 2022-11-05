@@ -9,13 +9,12 @@ import {
   ViewChild
 } from '@angular/core';
 import { BaseTableComponent } from '../base-table';
-import { TopicsApi } from '../../server-api/topics.api';
 import { SelectionModel } from '@angular/cdk/collections';
-import { isOnChanges } from '../../common/utils';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { DefaultParams } from '../../common/default.models';
+import {DefaultParams} from "../../default-models";
+import {isOnChanges} from "../../utils";
 
 export interface ISimpleColumn {
   name: string;
@@ -59,8 +58,8 @@ export class SimpleTableComponent
 
   @Output() paramsChange: EventEmitter<any> = new EventEmitter();
   @Output() orderingChangedEvent: EventEmitter<any> = new EventEmitter();
-  @Output() selectionChange: EventEmitter<SelectionModel<TopicsApi>> =
-    new EventEmitter<SelectionModel<TopicsApi>>();
+  @Output() selectionChange: EventEmitter<SelectionModel<any>> =
+    new EventEmitter<SelectionModel<any>>();
   @Output() rowClick: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;

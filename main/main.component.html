@@ -1,6 +1,6 @@
 <div fxLayout="column" fxFill fxLayoutAlign="center center">
   <div class="main-bg">
-    <video autoplay muted loop id="myVideo">
+    <video autoplay muted loop id="video">
       <source src="./assets/images/bg-main.mp4" type="video/mp4">
     </video>
   </div>
@@ -11,10 +11,16 @@
           RICOFIT.RU
         </h1>
       </div>
-      <div class="information" fxLayout="column" fxLayoutAlign="center center">
-        <h2> Анализируем таможенную статистику </h2>
-        <h3> Рекомендательный сервис по выявлению перспективных производственных ниш на основе таможенной статистики </h3>
-        test
+      <div class="information" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="start end">
+          <h2> Анализируем таможенную статистику </h2>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center end">
+          <h3> Рекомендательный сервис по выявлению перспективных производственных ниш на основе таможенной статистики </h3>
+        </div>
+        <div fxLayoutAlign="end start">
+          <button mat-raised-button color="accent" routerLink="/login" *ngIf="!user"> личный кабинет </button>
+        </div>
       </div>
     </div>
   </div>
