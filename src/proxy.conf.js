@@ -1,9 +1,10 @@
 const PROXY_CONFIG = [{
   context: [
-    '/api'
+    '/api',
+    '/token'
   ],
   target: "http://localhost:37000",
-  secure: false
+  secure: false,
 }];
 
 module.exports = PROXY_CONFIG;

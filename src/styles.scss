@@ -1,11 +1,12 @@
 @use '@angular/material' as mat;
 @import "assets/styles/palettes";
+@import "assets/styles/reset";
 
 @include mat.core();
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@300&display=swap');
 
-$my-primary: mat.define-palette($primary-palette, 800);
-$my-accent: mat.define-palette($accent-palette, 600, 700, 800);
+$my-primary: mat.define-palette($primary-palette);
+$my-accent: mat.define-palette($accent-palette);
 
 $my-theme: mat.define-light-theme((
   color: (
@@ -24,4 +25,21 @@ body {
   font-family: 'Montserrat', sans-serif;
   width: 100vw;
   margin: 0;
+  *::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff00;
+  }
+  *::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 10px;
+    color: #3be9ff;
+    border: 1px solid #3be9ff;
+    border-radius: 10px;
+  }
+
+}
+
+.default-page {
+  height: 100%;
+  overflow: auto;
+  background-color: black;
 }
