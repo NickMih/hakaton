@@ -1,0 +1,26 @@
+<mat-card fxLayout="column" fxLayoutGap="8px">
+  <mat-card-title> Параметры запроса </mat-card-title>
+  <mat-card-content fxLayout="column">
+    <mat-form-field>
+      <mat-label> Направление перемещения </mat-label>
+      <mat-select>
+        <mat-option *ngFor="let option of importExport" [value]="option.value"> {{ option.name }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Отображение веса </mat-label>
+      <mat-select>
+        <mat-option *ngFor="let option of weights" [value]="option.value"> {{ option.name }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Отображение стоимости </mat-label>
+      <mat-select>
+        <mat-option *ngFor="let option of costs" [value]="option.value"> {{ option.name }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button mat-raised-button color="primary"> Показать результаты </button>
+  </div>
+</mat-card>

@@ -1,0 +1,12 @@
+@import "src/assets/styles/constants";
+
+.statistic-container {
+  background-color: black;
+
+  .table-container {
+    background-color: $black-light;
+    box-shadow: 0 0 15px #3be9ff;
+    height: 90vh;
+    width: 90vw;
+  }
+}

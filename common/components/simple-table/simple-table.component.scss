@@ -1,0 +1,41 @@
+@import './src/assets/styles/constants';
+
+.mat-table {
+  overflow: auto;
+}
+
+.full-height {
+  height: calc(100vh - 188px);
+}
+.card-height {
+  height: calc(50vh - 122px);
+  &--with-paginator {
+    height: calc(50vh - 168px);
+  }
+}
+
+.mat-column-select {
+  overflow: initial;
+  flex: 0 0 45px;
+}
+
+mat-header-row {
+  min-height: 49px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  background-color: inherit;
+  z-index: 1;
+}
+
+mat-icon {
+  transition: 300ms;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.link {
+  color: $link-color;
+}

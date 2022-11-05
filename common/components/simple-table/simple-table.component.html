@@ -1,0 +1,99 @@
+<div fxFill fxLayout="column">
+  <mat-table
+    matSort
+    fxLayout="column"
+    [dataSource]="dataSource"
+    [matSortActive]="sortActive"
+    [matSortDirection]="sortDirection"
+    fxFlex
+    [style.height]="tableHeight"
+    *ngIf="dataSource; else loader">
+    <ng-container matColumnDef="selection" class="mat-column-select">
+      <mat-header-cell
+        *matHeaderCellDef
+        fxFlex="5"
+        fxLayout="row"
+        fxLayoutGap="8px"
+        class="mat-column-select">
+        <div fxLayout="row" fxLayoutGap="8px">
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+            class="in-one-line">
+          </mat-checkbox>
+        </div>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" class="mat-column-select" fxFlex="5">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">
+      <mat-header-cell
+        *matHeaderCellDef
+        [fxFlex]="column.width"
+        [mat-sort-header]="column.isSortable ? column.name : null"
+        [disabled]="!column.isSortable">
+        {{ column.label }}
+      </mat-header-cell>
+      <mat-cell
+        *matCellDef="let element"
+        [fxFlex]="column.width"
+        (click)="onCellClick($event, column, element)"
+        [ngClass]="{ link: column.cellClick }">
+        <ng-container *ngIf="column.isShow ? column.isShow(element) : true">
+          <div [matTooltip]="column.tooltip ? column.tooltip(element) : null">
+            <span *ngIf="column.functionPipe">
+              {{ element | simpleFunctionValue: column.functionPipe }}
+            </span>
+            <mat-icon
+              *ngIf="column.icon"
+              [color]="column.color ? column.color : 'primary'">
+              {{ column.icon }}
+            </mat-icon>
+            <span *ngIf="!column.icon && !column.functionPipe">
+              {{ element | simpleValue: column }}
+            </span>
+          </div>
+        </ng-container>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      fxLayoutGap="8px"></mat-header-row>
+    <mat-row
+      class="cursor-pointer"
+      fxLayoutGap="8px"
+      *matRowDef="let row; columns: displayedColumns"
+      [ngClass]="rowClassFunction ? rowClassFunction(row) : {}"
+      (click)="rowClick.emit(row)"></mat-row>
+
+    <div
+      class="no-data-label"
+      fxFlex
+      *matNoDataRow
+      fxLayoutAlign="center center">
+      <div>{{ noDataTitle }}</div>
+    </div>
+  </mat-table>
+  <mat-paginator
+    *ngIf="params?.paginationOption"
+    [length]="params.paginationOption?.length"
+    [pageSize]="params.paginationOption?.limit"
+    [pageSizeOptions]="[10, 20, 50]"
+    [showFirstLastButtons]="true"
+    (page)="paginatorClicked()">
+  </mat-paginator>
+
+  <ng-template #loader>
+    <mat-spinner [strokeWidth]="2" [diameter]="16"></mat-spinner>
+  </ng-template>
+
+  <ng-template #cellContent let-element> </ng-template>
+</div>

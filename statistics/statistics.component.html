@@ -1,1 +1,30 @@
-<p>statistics works!</p>
+<section
+  class="statistic-container"
+  fxFill
+  fxLayout="column"
+  fxLayoutGap="8px"
+  fxLayoutAlign="center center"
+>
+  <mat-card
+    fxFlex="90vh"
+    class="table-container"
+    fxLayout="column"
+    fxLayoutGap="8px"
+  >
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
+      <button mat-raised-button color="accent" (click)="openFilters()"> Фильтры </button>
+      <button mat-raised-button color="accent"> Сохранить запрос </button>
+      <button mat-raised-button color="accent"> Экспорт </button>
+    </div>
+      <simple-table
+        fxFlex
+        [columns]="tableColumns"
+        [source]="data$ | async"
+        [params]="params"
+        [noDataTitle]="'Нет данных по эти фильтрам'"
+      >
+      </simple-table>
+
+  </mat-card>
+
+</section>
